@@ -12,7 +12,10 @@
     echo "this"."is"."concatenated string</br";
 
     ?>
-
+  //echo is faster than print
+  //print can take only single argument
+    //echo can take multiple arguments
+    
 </body>
 
 </html>
