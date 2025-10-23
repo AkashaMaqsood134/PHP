@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>comments in php</title>
+        <title>function by reference in php</title>
     </head>
 <body>
   <?php

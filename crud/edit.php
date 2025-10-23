@@ -4,10 +4,10 @@
     <h2>Update Record</h2>
 
     <?php  
-    $conn = mysqli_connect("localhost", "root","", "crud" ) or die ("Connection Failed")  ;
+     $conn = mysqli_connect("localhost", "root","", "crud" ) or die ("Connection Failed")  ;
      $stu_id = $_GET['id'];
     
-    $sql = " SELECT * FROM student WHERE sid = {$stu_id} ";
+      $sql = " SELECT * FROM student WHERE sid = {$stu_id}";
       $result = mysqli_query($conn, $sql) or die("Query Unsuccessful.");
     if(mysqli_num_rows($result) >0 ){
         while($row = mysqli_fetch_assoc($result)){
@@ -25,22 +25,24 @@
       </div>
       <div class="form-group">
           <label>Class</label>
-
-
           <?php
-             $aql1 = "SELECT * FROM studentclass ";
-                $result1 = mysqli_query($conn, $aql1) or die("Query Unsuccessful.");
+             $sql1 = "SELECT * FROM studentclass ";
+                $result1 = mysqli_query($conn, $sql1) or die("Query Unsuccessful.");
                 
                 if(mysqli_num_rows($result1) >0 ){
-                echo ' <select name="sclass">
-              <option value="" selected disabled>Select Class</option>';
-                }
+                echo ' <select name="sclass">';
+                
                 while ($row1 = mysqli_fetch_assoc($result1)){ 
 
-        
-        echo "<option value='{$row['cid']}'>{$row['cname']}</option>";
+            if($row['sclass'] == $row1['cid']){
+                $selected = "selected";
+            }else{
+                $selected = "";
+            }
+        echo "<option {$selected}value='{$row1['cid']}'>{$row1['cname']}</option>";
                 }
          echo "</select>";
+            }
             ?>
       </div>
       <div class="form-group">
